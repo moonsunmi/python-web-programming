@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>shkim Django Apps</h1>
+
+<ul>
+    {% for key, value in verbose_dict.items %}
+    <li><a href="{% url key|add:':index' %}">{{ value }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock content %}
+
+<!-- context['app_list'] = ['polls', 'books']
