@@ -4,8 +4,8 @@ from django.urls import reverse
 from polls.models import Choice, Question
 from django.views import generic
 
-#import logging
-#logger = logging.getLogger(__name__)
+import logging
+logger = logging.getLogger(__name__)
 
 class IndexView(generic.ListView): # def index(request):
     template_name = 'polls/index.html'
@@ -26,7 +26,7 @@ class ResultsView(generic.DetailView):
 
 
 def vote(request, question_id):
-    #logger.debug("vote().question_id: %s" % question_id)
+    logger.debug("vote().question_id: %s" % question_id)
     question = get_object_or_404(Question, pk=question_id)
 
     try:
